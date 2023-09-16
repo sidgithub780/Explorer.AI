@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import supabase from "../supabaseConfig";
 import Navbar from "../components/Navbar";
 import axios from "axios";
+import supabase from "../supabaseConfig";
 
 const Home = () => {
   const [selectedMonth, setSelectedMonth] = useState("");
@@ -12,6 +13,18 @@ const Home = () => {
   const [days, setDays] = useState(0);
   const [budget, setBudget] = useState(0);
   const [destination, setDestination] = useState("");
+  const [userID, setUserID] = useState(null);
+
+  useEffect(() => {
+    const test = async () => {
+      const {
+        data: { user },
+      } = await supabase.auth.getUser();
+      setUserID(user.id);
+    };
+
+    test();
+  }, []);
 
   const months = [
     "January",
@@ -223,6 +236,7 @@ const Home = () => {
               style: styleVar,
               people: people,
               budget: budgetVar,
+              userID: userID,
             })
             .then((response) => {
               console.log("success");
