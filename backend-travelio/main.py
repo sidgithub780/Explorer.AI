@@ -8,6 +8,7 @@ month = input("Please enter the month you plan to travel: ")
 style = input("Please enter which vacation style you prefer (relaxed, moderate, fast-paced): ")
 people = input("How many people will be traveling? (Enter 1 if alone): ")
 #budget here
+budget = input("What is your budget? (low/medium/high)")
 #transport here (rental car, etc)
 gptString = (
     "\"Please create a detailed, day by day vacation plan to " 
@@ -28,7 +29,11 @@ print(x[0])
 # Ask if user is satisfied
 # If yes, terminate, if no, ask for additional comments. Run again with original string and new comments (place what they say in additional comments)
 satisfied = input("Are you satisfied with your trip plan (yes/no): ")
-if satisfied == "yes"
-    
-else
+if(satisfied == "no"):
+    comments = input("Enter what you would like fixed: ")
+    #make sure to clear old output
+    cmd2 = cmd + comments
+    proc = subprocess.Popen(cmd2, stdout=subprocess.PIPE, shell=True)
+    (out, err) = proc.communicate()
+    print("program output:", out.decode())
     
