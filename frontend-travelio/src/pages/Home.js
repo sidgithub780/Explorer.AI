@@ -193,12 +193,24 @@ const Home = () => {
       <button
         className="transition hover:bg-green-500 bg-black font-bold text-2xl text-white rounded-xl p-3"
         onClick={async () => {
+          console.log(typeof destination);
+
+          let styleVar = "";
+
+          if (selectedAnswer == 1) {
+            styleVar = "Relaxed";
+          } else if (selectedAnswer == 2) {
+            styleVar = "Moderate";
+          } else if (selectedAnswer == 3) {
+            styleVar = "Fast";
+          }
+
           await axios
             .post("http://127.0.0.1:5000/", {
               destination: destination,
               duration: days,
               month: selectedMonth,
-              style: selectedAnswer,
+              style: styleVar,
               people: people,
               budget: budget,
             })
