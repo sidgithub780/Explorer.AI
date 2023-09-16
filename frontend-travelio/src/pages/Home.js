@@ -10,7 +10,7 @@ const Home = () => {
   const [selectedAnswer, setSelectedAnswer] = useState(1); // trip pace
   const [people, setPeople] = useState(0);
   const [days, setDays] = useState(0);
-  const [budget, setBudget] = useState("Medium");
+  const [budget, setBudget] = useState(0);
   const [destination, setDestination] = useState("");
 
   const months = [
@@ -205,6 +205,16 @@ const Home = () => {
             styleVar = "Fast";
           }
 
+          let budgetVar = "";
+
+          if (budget == 1) {
+            budgetVar = "Relaxed";
+          } else if (budget == 2) {
+            budgetVar = "Moderate";
+          } else if (budget == 3) {
+            budgetVar = "Fast";
+          }
+
           await axios
             .post("http://127.0.0.1:5000/", {
               destination: destination,
@@ -212,7 +222,7 @@ const Home = () => {
               month: selectedMonth,
               style: styleVar,
               people: people,
-              budget: budget,
+              budget: budgetVar,
             })
             .then((response) => {
               console.log("success");
