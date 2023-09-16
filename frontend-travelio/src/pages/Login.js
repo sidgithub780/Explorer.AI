@@ -1,14 +1,26 @@
 import React from "react";
-
+import supabase from "../supabaseConfig";
 import { useState, useEffect } from "react";
-import { createClient } from "@supabase/supabase-js";
 import { Auth } from "@supabase/auth-ui-react";
 import { ThemeSupa } from "@supabase/auth-ui-shared";
 
-const supabase = createClient(
-  "https://rhaggswdriuihhlsoqrr.supabase.co",
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJoYWdnc3dkcml1aWhobHNvcXJyIiwicm9sZSI6ImFub24iLCJpYXQiOjE2OTQ4NzYzNjUsImV4cCI6MjAxMDQ1MjM2NX0.0eScEjA_vxTTF1gAKFaIV5eyV5JlfHppnGiig5QNDtg"
-);
+import Home from "./Home";
+
+const checkThreshold = (timeStampStr) => {
+  const timestamp = new Date(timeStampStr);
+
+  const currentTime = new Date();
+
+  const timeDifferenceMs = currentTime - timestamp;
+
+  const thresholdMs = 15 * 1000;
+
+  if (Math.abs(timeDifferenceMs) <= thresholdMs) {
+    return true;
+  } else {
+    return false;
+  }
+};
 
 const Login = () => {
   const [session, setSession] = useState(null);
@@ -40,20 +52,10 @@ const Login = () => {
         </div>
       </div>
     );
+  } else if (checkThreshold(session.user.createdAt)) {
+    return <div>new account asl</div>;
   } else {
-    return (
-      <div>
-        Logged in!
-        <button
-          className="bg-black rounded-md px-9 py-3 text-green-300 text-xl hover:scale-105 active:scale-95 font-bold mt-4"
-          onClick={async () => {
-            const { error } = await supabase.auth.signOut();
-          }}
-        >
-          Logout
-        </button>
-      </div>
-    );
+    return <Home />;
   }
 };
 
