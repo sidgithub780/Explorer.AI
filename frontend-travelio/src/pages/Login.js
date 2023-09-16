@@ -29,15 +29,15 @@ const Login = () => {
 
   if (!session) {
     return (
-      <div
-        className="bg-red-300"
-        style={{ overflowY: "hidden", height: "100vh" }}
-      >
-        <Auth
-          supabaseClient={supabase}
-          appearance={{ theme: ThemeSupa }}
-          theme="dark"
-        />
+      <div className="flex items-center justify-center h-screen">
+        <div className="w-2/5 overflow-y-hidden bg-white p-5 rounded-xl">
+          <Auth
+            supabaseClient={supabase}
+            appearance={{ theme: ThemeSupa }}
+            theme="light"
+            providers={[]}
+          />
+        </div>
       </div>
     );
   } else {
