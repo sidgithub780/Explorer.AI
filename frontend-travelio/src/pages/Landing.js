@@ -3,7 +3,12 @@ import Navbar from "../components/Navbar";
 
 import BackgroundGlobe from "../components/BackgroundGlobe";
 
+import {useNavigate} from 'react-router-dom'
+
 const Landing = () => {
+
+  const navigate = useNavigate();
+
   return (
     <>
   <Navbar />
@@ -32,6 +37,7 @@ const Landing = () => {
       <button
         className="absolute top-1/3 mt-10 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white bg-opacity-30 rounded-md px-9 py-3 text-green-300 text-3xl hover:scale-105 active:scale-95 font-bold mt-4"
         style={{ zIndex: 9999 }}
+        onClick={() => {navigate('/login')}}
       >
         Make memories
       </button>
