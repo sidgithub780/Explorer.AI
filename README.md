@@ -18,7 +18,7 @@ Welcome to the Travelio! This website application allows users to input their va
 ## Features
 
 - **User-friendly Interface:** Easily input your vacation details through a user-friendly interface.
-- **Customizable Preferences:** Specify your interests, budget, duration, and any special requirements.
+- **Customizable Preferences:** Specify your interests, budget, duration, and the number of people traveling with.
 - **Smart Recommendations:** Receive personalized recommendations for activities, attractions, and restaurants.
 - **Day-by-Day Itinerary:** Get a detailed day-by-day itinerary that maximizes your enjoyment.
 - **Save and Share:** Save your plans for future reference and share them with fellow travelers.
