@@ -14,7 +14,7 @@ const Landing = () => {
     <div>
       <div className="flex flex-col gap-4 py-40 align-center">
         <div className="flex mt-2">
-          {"Travelio".split("").map((letter, index) => {
+          {"Explorer.AI".split("").map((letter, index) => {
             return (
               <span
                 key={index}
