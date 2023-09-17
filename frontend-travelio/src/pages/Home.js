@@ -63,9 +63,11 @@ const Home = () => {
           <div className="relative z-10 flex flex-col items-center justify-start min-h-screen gap-6 text-black px-20">
       <div className="mt-15">
         <h1 className="font-bold text-6xl text-center">
-          Where's your next <span className="text-white">memory?</span>
+          Where's your next memory?
         </h1>
       </div>
+      <div className="mt-4 text-3xl text-center">
+        {" "}
       <input
         type="text"
         className="w-full px-4 py-2 rounded-lg border border-gray-400 mt-4"
@@ -74,29 +76,30 @@ const Home = () => {
           setDestination(e.target.value);
         }}
       />
-      <div className="mt-4 text-3xl text-center font-bold">
-        My trip is{" "}
+      </div>
+      <div className="mt-4 text-3xl text-center">
+        {" "}
         <input
-          type="number"
-          className="w-30 px-2 py-1 rounded-lg border border-gray-400"
-          placeholder="???"
+          type="number"trip pa
+          className="w-30 px-2 py-1 rounded-lg border border-gray-400 text-center"
+          placeholder="Trip Duration? (Days)"
           onChange={(e) => {
             setDays(e.target.value);
           }}
         />{" "}
-        days long.
+        
       </div>
       <div className="mt-4 text-center relative flex items-center">
         {selectedMonth && (
           <p className="ml-2 mr-2 text-3xl font-bold">
-            I'm going on this trip in
+            
           </p>
         )}
         <span className="rounded-md shadow-sm">
           <button
             onClick={() => setIsDropdownOpen(!isDropdownOpen)} // Toggle the dropdown visibility
             type="button"
-            className="px-4 py-2 bg-green-500 text-white text-2xl font-bold rounded-lg border border-green-600 hover:bg-green-600 focus:outline-none focus:border-green-700 focus:shadow-outline-blue active:bg-blue-800"
+            className="px-4 py-2 bg-slate-600 text-white text-2xl font-bold rounded-lg  hover:bg-green-600 focus:outline-none focus:border-green-700 focus:shadow-outline-blue active:bg-blue-800"
             id="month-selector"
           >
             {selectedMonth || "Select Month"}
@@ -125,11 +128,11 @@ const Home = () => {
         )}
       </div>
       <div className="ml-4 flex items-center space-x-2">
-        <p className="font-bold text-3xl">Trip Pace:</p>
+        <p className="font-bold text-xl"></p>
         <button
           className={`${
             selectedAnswer === 1
-              ? "bg-green-500 text-white"
+              ? "bg-slate-600 text-white"
               : "bg-gray-300 text-gray-700 hover:bg-gray-400"
           } px-4 py-2 rounded-lg transition-all duration-300 ease-in-out text-xl font-bold`}
           onClick={() => handleAnswerClick(1)}
@@ -139,7 +142,7 @@ const Home = () => {
         <button
           className={`${
             selectedAnswer === 2
-              ? "bg-green-500 text-white"
+              ? "bg-slate-600 text-white"
               : "bg-gray-300 text-gray-700 hover:bg-gray-400"
           } px-4 py-2 rounded-lg transition-all duration-300 ease-in-out text-xl font-bold`}
           onClick={() => handleAnswerClick(2)}
@@ -149,7 +152,7 @@ const Home = () => {
         <button
           className={`${
             selectedAnswer === 3
-              ? "bg-green-500 text-white"
+              ? "bg-slate-600 text-white"
               : "bg-gray-300 text-gray-700 hover:bg-gray-400"
           } px-4 py-2 rounded-lg transition-all duration-300 ease-in-out text-xl font-bold`}
           onClick={() => handleAnswerClick(3)}
@@ -157,20 +160,20 @@ const Home = () => {
           Fast-paced
         </button>
       </div>
-      <div className="mt-4 text-3xl text-center font-bold">
+      <div className="mt-4 text-3xl text-center">
         {" "}
         <input
           type="number"
-          className="w-30 px-2 py-1 rounded-lg border border-gray-400"
-          placeholder="???"
+          className="w-30 px-2 py-1 rounded-lg border border-gray-400 text-center"
+          placeholder="How many people?"
           onChange={(e) => {
             setPeople(e.target.value);
           }}
         />{" "}
-        people are going on this trip.
+        
       </div>
       <div className="ml-4 flex items-center space-x-2">
-        <p className="font-bold text-3xl">Budget:</p>
+        <p className="font-bold text-3xl"></p>
         <button
           className={`${
             budget === 1
@@ -179,7 +182,7 @@ const Home = () => {
           } px-4 py-2 rounded-lg transition-all duration-300 ease-in-out text-xl font-bold`}
           onClick={() => handleBudgetClick(1)}
         >
-          Low
+          $
         </button>
         <button
           className={`${
@@ -189,7 +192,7 @@ const Home = () => {
           } px-4 py-2 rounded-lg transition-all duration-300 ease-in-out text-xl font-bold`}
           onClick={() => handleBudgetClick(2)}
         >
-          Medium
+          $$
         </button>
         <button
           className={`${
@@ -199,7 +202,7 @@ const Home = () => {
           } px-4 py-2 rounded-lg transition-all duration-300 ease-in-out text-xl font-bold`}
           onClick={() => handleBudgetClick(3)}
         >
-          High
+        $$$
         </button>
       </div>
 
@@ -212,7 +215,7 @@ const Home = () => {
         />
       ) : (
         <button
-          className="transition hover:bg-green-500 bg-black font-bold text-2xl text-white rounded-xl p-3"
+          className="transition hover:bg-green-500 bg-slate-600 font-bold text-2xl text-white rounded-xl p-3"
           onClick={async () => {
             setLoading(true);
             console.log(typeof destination);
