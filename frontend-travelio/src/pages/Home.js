@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import supabase from "../supabaseConfig";
 import Navbar from "../components/Navbar";
 import axios from "axios";
-import supabase from "../supabaseConfig";
+
 
 const Home = () => {
   const [selectedMonth, setSelectedMonth] = useState("");

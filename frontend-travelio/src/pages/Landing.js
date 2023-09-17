@@ -1,39 +1,45 @@
 import React from "react";
 import Navbar from "../components/Navbar";
 
+import BackgroundGlobe from "../components/BackgroundGlobe";
+
 const Landing = () => {
   return (
     <>
-      <Navbar />
-      <div
-        className="flex items-center min-h-screen gap-6 text-black px-20 bg-green-300"
-        style={{ overflowY: "hidden", height: "100vh" }}
-      >
-        <div>
-          <div className="flex flex-col gap-4">
-            <div className="flex mt-5">
-              {"Travelio".split("").map((letter, index) => {
-                return (
-                  <span
-                    key={index}
-                    className="hover:-mt-2 transition-all duration-500 hover:duration-100  text-8xl  font-bold hover:text-white"
-                  >
-                    {letter}
-                  </span>
-                );
-              })}
-            </div>
-          </div>
-
-          <div className="text-2xl mt-4">
-            Your personal trip planner, travel guide, budget-keeper, and journal
-          </div>
-          <button className="bg-black rounded-md px-9 py-3 text-green-300 text-xl hover:scale-105 active:scale-95 font-bold mt-4">
-            Make memories
-          </button>
+  <Navbar />
+  <div
+    className="relative flex min-h-screen gap-6 text-white bg-transparent justify-center"
+    style={{ overflowY: "hidden", height: "10vh" }}
+  >
+    <div>
+      <div className="flex flex-col gap-4 py-40 align-center">
+        <div className="flex mt-2">
+          {"Travelio".split("").map((letter, index) => {
+            return (
+              <span
+                key={index}
+                className="hover:-mt-2 tracking-wide transition-all duration-500 hover:duration-100 text-8xl font-bold hover:text-green-300"
+                style={{ zIndex: 9999 }}
+              >
+                {letter}
+              </span>
+            );
+          })}
         </div>
       </div>
-    </>
+
+      
+      <button
+        className="absolute top-1/3 mt-10 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white bg-opacity-30 rounded-md px-9 py-3 text-green-300 text-3xl hover:scale-105 active:scale-95 font-bold mt-4"
+        style={{ zIndex: 9999 }}
+      >
+        Make memories
+      </button>
+    </div>
+  </div>
+  <BackgroundGlobe />
+</>
+
   );
 };
 
