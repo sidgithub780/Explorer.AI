@@ -58,7 +58,7 @@ const Home = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-start min-h-screen gap-6 text-black px-20 bg-green-300">
+    <div className="flex flex-col items-center justify-start min-h-screen gap-6 text-black px-20">
       <div className="mt-15">
         <h1 className="font-bold text-6xl text-center">
           Where's your next <span className="text-white">memory?</span>
