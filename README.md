@@ -1,7 +1,7 @@
-# Travelio
+# Explorer.AI
 # Vacation Planner Web Application
 
-Welcome to the Travelio! This website application allows users to input their vacation location, date, and budget to generate an activity list for each day of their upcoming vacation. Whether you're planning a weekend getaway or an extended trip, this tool will help you make the most of your time away.
+Welcome to the Explorer.AI! This website application allows users to input their vacation location, date, and budget to generate an activity list for each day of their upcoming vacation. Whether you're planning a weekend getaway or an extended trip, this tool will help you make the most of your time away.
 
 ## Table of Contents
 
