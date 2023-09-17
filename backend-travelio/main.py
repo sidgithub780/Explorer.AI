@@ -51,8 +51,8 @@ def generate_itinerary():
         gptString = (
             "\"Please create a detailed, day by day vacation plan to " 
             + destination + " with a duration of " + str(duration) + " days with a " 
-            + style + " pace during the month of " + month + " built around a trip with " + str(people) + " people" + "with a  " + budget + " budget" +
-            ". Make sure to add a delimeter, ***, between each day so it is easy to separate the days (THIS IS VERY IMPORTANT), and label activities by with what time of day it would occur" + "\""
+            + style + " pace during the month of " + month + " built around a trip with " + "2" + " people " + "with a  " + budget + " budget" +
+            ". Make sure to separate each day's schedule by three astericks ('***') so it is easy to separate the days (THIS IS VERY IMPORTANT). Do NOT add extra days, or alter my requests." + "\""
         )
         cmd = "sgpt txt " + gptString
         proc = subprocess.Popen(cmd, stdout=subprocess.PIPE, shell=True)
@@ -71,7 +71,7 @@ def generate_itinerary():
             + style + " pace during the month of " + month + " built around a trip with " + people + " people" + "with a  " + budget + " budget" +
             ". Some things to keep in mind are, I like " + str(profile_likes) + ", I DON'T like " + str(profile_dislikes) + ". I am also a " + profile_experience
             + " traveler." + " I am " + profile_age + " years old. Please keep all of this info in mind for my itinerary" + 
-            ". Make sure to add a *** between each day so it is easy to separate the days, and label activities by with what time of day it would occur" + "\""
+            ". Make sure to add a *** between each day so it is easy to separate the days. Organize schedule by with what time of day it would occur. Make sure the delimeter only separates the DAYS, and is not preceded or followed by a new line" + "\""
         )
         cmd = "sgpt txt " + gptString
         proc = subprocess.Popen(cmd, stdout=subprocess.PIPE, shell=True)
