@@ -47,7 +47,7 @@ const Tripscroller = ({ tuff }) => {
   }, []);
 
   const blogCardElements = tuff.map((card, index) => (
-    <div className="blog-slider__item swiper-slide" key={index}>
+    <div className="blog-slider__item swiper-slide " key={index}>
       <div className="blog-slider__content">
         <div className="blog-slider__title">{card.title}</div>
         <div className="blog-slider__text">{card.text}</div>
@@ -59,7 +59,7 @@ const Tripscroller = ({ tuff }) => {
   ));
 
   return (
-    <div className="blog-slider">
+    <div className="blog-slider ">
       <div className="blog-slider__wrp swiper-wrapper">{blogCardElements}</div>
       <div className="blog-slider__scrollbar"></div> {/* Add this */}
       <div className="blog-slider__pagination"></div>
