@@ -2,9 +2,12 @@ import React, { useState, useEffect } from "react";
 import supabase from "../supabaseConfig";
 import Navbar from "../components/Navbar";
 import axios from "axios";
-import supabase from "../supabaseConfig";
+import PropagateLoader from "react-spinners/PropagateLoader";
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
+  const navigate = useNavigate();
+
   const [selectedMonth, setSelectedMonth] = useState("");
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState("Moderate"); // Initial option
@@ -14,6 +17,7 @@ const Home = () => {
   const [budget, setBudget] = useState(0);
   const [destination, setDestination] = useState("");
   const [userID, setUserID] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const test = async () => {
@@ -60,7 +64,6 @@ const Home = () => {
           Where's your next <span className="text-white">memory?</span>
         </h1>
       </div>
-
       <input
         type="text"
         className="w-full px-4 py-2 rounded-lg border border-gray-400 mt-4"
@@ -69,7 +72,6 @@ const Home = () => {
           setDestination(e.target.value);
         }}
       />
-
       <div className="mt-4 text-3xl text-center font-bold">
         My trip is{" "}
         <input
@@ -82,7 +84,6 @@ const Home = () => {
         />{" "}
         days long.
       </div>
-
       <div className="mt-4 text-center relative flex items-center">
         {selectedMonth && (
           <p className="ml-2 mr-2 text-3xl font-bold">
@@ -121,7 +122,6 @@ const Home = () => {
           </div>
         )}
       </div>
-
       <div className="ml-4 flex items-center space-x-2">
         <p className="font-bold text-3xl">Trip Pace:</p>
         <button
@@ -155,7 +155,6 @@ const Home = () => {
           Fast-paced
         </button>
       </div>
-
       <div className="mt-4 text-3xl text-center font-bold">
         {" "}
         <input
@@ -168,7 +167,6 @@ const Home = () => {
         />{" "}
         people are going on this trip.
       </div>
-
       <div className="ml-4 flex items-center space-x-2">
         <p className="font-bold text-3xl">Budget:</p>
         <button
@@ -203,53 +201,67 @@ const Home = () => {
         </button>
       </div>
 
-      <button
-        className="transition hover:bg-green-500 bg-black font-bold text-2xl text-white rounded-xl p-3"
-        onClick={async () => {
-          console.log(typeof destination);
+      {loading ? (
+        <PropagateLoader
+          loading={loading}
+          size={30}
+          aria-label="Loading Spinner"
+          data-testid="loader"
+        />
+      ) : (
+        <button
+          className="transition hover:bg-green-500 bg-black font-bold text-2xl text-white rounded-xl p-3"
+          onClick={async () => {
+            setLoading(true);
+            console.log(typeof destination);
 
-          let styleVar = "";
+            let styleVar = "";
 
-          if (selectedAnswer == 1) {
-            styleVar = "Relaxed";
-          } else if (selectedAnswer == 2) {
-            styleVar = "Moderate";
-          } else if (selectedAnswer == 3) {
-            styleVar = "Fast";
-          }
+            if (selectedAnswer == 1) {
+              styleVar = "Relaxed";
+            } else if (selectedAnswer == 2) {
+              styleVar = "Moderate";
+            } else if (selectedAnswer == 3) {
+              styleVar = "Fast";
+            }
 
-          let budgetVar = "";
+            let budgetVar = "";
 
-          if (budget == 1) {
-            budgetVar = "Relaxed";
-          } else if (budget == 2) {
-            budgetVar = "Moderate";
-          } else if (budget == 3) {
-            budgetVar = "Fast";
-          }
+            if (budget == 1) {
+              budgetVar = "Relaxed";
+            } else if (budget == 2) {
+              budgetVar = "Moderate";
+            } else if (budget == 3) {
+              budgetVar = "Fast";
+            }
 
-          await axios
-            .post("http://127.0.0.1:5000/", {
-              destination: destination,
-              duration: days,
-              month: selectedMonth,
-              style: styleVar,
-              people: people,
-              budget: budgetVar,
-              userID: userID,
-            })
-            .then((response) => {
-              console.log("success");
-              console.log(response.data);
-              // Handle data
-            })
-            .catch((error) => {
-              console.log(error);
-            });
-        }}
-      >
-        Let's go places.
-      </button>
+            await axios
+              .post("http://127.0.0.1:5000/", {
+                destination: destination,
+                duration: days,
+                month: selectedMonth,
+                style: styleVar,
+                people: people,
+                budget: budgetVar,
+                userID: userID,
+              })
+              .then((response) => {
+                setLoading(false);
+                navigate("/realhomepage", { state: response.data });
+
+                console.log("success");
+                console.log(response.data);
+                console.log();
+                // Handle data
+              })
+              .catch((error) => {
+                console.log(error);
+              });
+          }}
+        >
+          Let's go places.
+        </button>
+      )}
     </div>
   );
 };

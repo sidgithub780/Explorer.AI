@@ -1,5 +1,8 @@
 import React from "react";
+import { useLocation } from "react-router-dom";
 
 export default function Realhomepage() {
-  return <div>Realhomepage</div>;
+  const { state } = useLocation();
+
+  return <div>{JSON.stringify(state)}</div>;
 }

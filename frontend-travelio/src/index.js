@@ -4,6 +4,7 @@ import "./index.css";
 import App from "./App";
 import Login from "./pages/Login";
 import Navbar from "./components/Navbar";
+import Home from "./pages/Home";
 import Realhomepage from "./pages/Realhomepage";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -15,6 +16,7 @@ root.render(
       <Route path="/" element={<Navbar />}>
         <Route index element={<App />} />
         <Route path="/realhomepage" element={<Realhomepage />} />
+        <Route path="/home" element={<Home />} />
         <Route path="login" element={<Login />} />
       </Route>
     </Routes>
