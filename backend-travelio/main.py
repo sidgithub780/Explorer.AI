@@ -39,6 +39,7 @@ def generate_itinerary():
         style = data.get('style')
         people = data.get('people')
         budget = data.get('budget')
+        userID = data.get('userID')
         if destination is None or duration is None or month is None or style is None or people is None or budget is None:
             return jsonify({"error": "One or more required fields are missing in the form data."}), 400
     except Exception as e:
@@ -59,7 +60,7 @@ def generate_itinerary():
         print("program output:", out.decode())  # Use decode() to convert bytes to a string
         final_output = out.decode()  # Convert the bytes output to a string
         x = final_output.split("***\n")
-        upload(x, destination, duration, month, style, people, budget)
+        upload(x, userID , destination, duration, month, style, people, budget)
         print("This is your personalized intinerary: " + str(x))
         itinerary = {'itinerary': x}
         return jsonify(itinerary)
@@ -78,15 +79,16 @@ def generate_itinerary():
         print("program output:", out.decode())  # Use decode() to convert bytes to a string
         final_output = out.decode()  # Convert the bytes output to a string
         x = final_output.split("***")
-        upload(x, destination, duration, month, style, people, budget)
+        upload(x, userID, destination, duration, month, style, people, budget)
         print("This is your personalized intinerary: " + str(x))
         response_data = {'itinerary': x}
         return jsonify(response_data)
     
-def upload(upload_data, destination, duration, month, style, people, budget):
+def upload(upload_data, userID, destination, duration, month, style, people, budget):
     y = [destination, duration, month, style, people, budget]
     data = {
             
+            'userID': userID,
             'trip': y,
             'itinerary': upload_data
         }
