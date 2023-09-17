@@ -4,6 +4,7 @@ import Navbar from "../components/Navbar";
 import axios from "axios";
 import PropagateLoader from "react-spinners/PropagateLoader";
 import { useNavigate } from "react-router-dom";
+import BackgroundWater from "../components/BackgroundWater";
 
 const Home = () => {
   const navigate = useNavigate();
@@ -58,7 +59,8 @@ const Home = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-start min-h-screen gap-6 text-black px-20">
+    <>
+          <div className="relative z-10 flex flex-col items-center justify-start min-h-screen gap-6 text-black px-20">
       <div className="mt-15">
         <h1 className="font-bold text-6xl text-center">
           Where's your next <span className="text-white">memory?</span>
@@ -263,6 +265,8 @@ const Home = () => {
         </button>
       )}
     </div>
+    <BackgroundWater />
+    </>
   );
 };
 
