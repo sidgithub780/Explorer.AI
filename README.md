@@ -52,7 +52,7 @@ When using the Vacation Planner Web Application, you'll need to provide the foll
 
 ## Output
 
-After inputting your parameters, the application will generate a day-by-day itinerary for your vacation. The itinerary will include:
+After inputting your parameters, the application will generate a day-by-day itinerary for your personalized vacation. The itinerary will include:
 
 - Recommended activities and attractions for each day.
 - Dining options and restaurants to try.
