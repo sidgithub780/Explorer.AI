@@ -177,7 +177,7 @@ const Home = () => {
           } px-4 py-2 rounded-lg transition-all duration-300 ease-in-out text-xl font-bold`}
           onClick={() => handleBudgetClick(1)}
         >
-          Relaxed
+          Low
         </button>
         <button
           className={`${
@@ -187,7 +187,7 @@ const Home = () => {
           } px-4 py-2 rounded-lg transition-all duration-300 ease-in-out text-xl font-bold`}
           onClick={() => handleBudgetClick(2)}
         >
-          Moderate
+          Medium
         </button>
         <button
           className={`${
@@ -197,7 +197,7 @@ const Home = () => {
           } px-4 py-2 rounded-lg transition-all duration-300 ease-in-out text-xl font-bold`}
           onClick={() => handleBudgetClick(3)}
         >
-          Fast-paced
+          High
         </button>
       </div>
 
@@ -228,11 +228,11 @@ const Home = () => {
             let budgetVar = "";
 
             if (budget == 1) {
-              budgetVar = "Relaxed";
+              budgetVar = "Low";
             } else if (budget == 2) {
-              budgetVar = "Moderate";
+              budgetVar = "Medium";
             } else if (budget == 3) {
-              budgetVar = "Fast";
+              budgetVar = "High";
             }
 
             await axios
