@@ -52,7 +52,7 @@ def generate_itinerary():
             "\"Please create a detailed, day by day vacation plan to " 
             + destination + " with a duration of " + str(duration) + " days with a " 
             + style + " pace during the month of " + month + " built around a trip with " + str(people) + " people" + "with a  " + budget + " budget" +
-            ". Make sure to add a *** between each day so it is easy to separate the days, and label activities by with what time of day it would occur" + "\""
+            ". Make sure to add a delimeter, ***, between each day so it is easy to separate the days (THIS IS VERY IMPORTANT), and label activities by with what time of day it would occur" + "\""
         )
         cmd = "sgpt txt " + gptString
         proc = subprocess.Popen(cmd, stdout=subprocess.PIPE, shell=True)
