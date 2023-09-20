@@ -18,7 +18,7 @@ Contributors: Written by Siddhant Kumar, Vinay Gupta, Jay Sunkara, and Anuraag K
 - [License](#license)
 
 ## Demo Video
-https://youtu.be/JjTwZwADXUA
+[https://youtu.be/JjTwZwADXUA](https://youtu.be/hPo2X4tWXLE)
 
 
 ## Features
