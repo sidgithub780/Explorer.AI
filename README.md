@@ -17,6 +17,10 @@ Contributors: Written by Siddhant Kumar, Vinay Gupta, Jay Sunkara, and Anuraag K
 - [Contributing](#contributing)
 - [License](#license)
 
+## Demo Video
+https://youtu.be/JjTwZwADXUA
+
+
 ## Features
 
 - **User-friendly Interface:** Easily input your vacation details through a user-friendly interface.
@@ -60,5 +64,5 @@ After inputting your parameters, the application will generate a day-by-day itin
 - Travel tips and recommendations for a memorable trip.
 
 
-![292ACDA4-5F7B-41E5-A791-F9618D316839_1_102_o](https://github.com/sidgithub780/Explorer.AI/assets/73007885/50ad4f91-c4b3-4aae-8a97-006606cf2622)
+
 
