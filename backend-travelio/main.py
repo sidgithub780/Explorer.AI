@@ -8,8 +8,8 @@ from flask_cors import CORS, cross_origin
 #supabase stuff
 from supabase import create_client, Client #import supabase
 import json
-API_URL = 'https://rhaggswdriuihhlsoqrr.supabase.co/' #enter here
-API_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJoYWdnc3dkcml1aWhobHNvcXJyIiwicm9sZSI6ImFub24iLCJpYXQiOjE2OTQ4NzYzNjUsImV4cCI6MjAxMDQ1MjM2NX0.0eScEjA_vxTTF1gAKFaIV5eyV5JlfHppnGiig5QNDtg' #enter here
+API_URL = '' #enter here
+API_KEY = '' #enter here
 supabase = create_client(API_URL, API_KEY)
 supabase 
 
